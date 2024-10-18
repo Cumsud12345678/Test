@@ -3,64 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAPA TAP TAP</title>
-    <link rel="stylesheet" href="style.css">
-    
-    
-    
-    
-</head>
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-<body>
- <div class="container">
-   <div class="container">
-    <nav>
-        <ul>
-            <li>
-                <a href="#">
-                    <i class="fa fa-home"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-tasks"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-trophy"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <header>
-        <div class="no">
-            <img src="./coin.png" alt="">
-            <h1 class="pointCont">0</h1>
-        </div>
-        <h2>Master SAPA</h2>
-        <h2 class="userCont"></h2>
-    </header>
-    <div class="tapCount">
-        <img src="Hypic/coin1.jpg" alt="">
-    </div>
-    <h3>
-        <span class="scoreCont">250</span>/
-        <span>250</span>
-    </h3>
-   </div>
- </div>
-</body>
+    <title>Şekil Düzeni</title>
+    <style>
+        body {
+            display: block;
+            text-align: center;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
 
-<!-- MAKE SURE TO ADD THIS -->
-<script src="https://telegram.org/js/telegram-web-app.js"></script> 
+        .rectangle, .circle, .oval, .small-rectangle, .circle-background {
+            background-color: gray;
+            margin: 10px;
+        }
+   
+    .rectangle {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
+            transform: translateY(10px);
+            margin-left: 30px;
+        }
+
+        .small-rectangle {
+            width: 170px;
+            height: 40px;
+            border-radius: 10px;
+            transform: translateY(25px);
+            margin-left: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            background-color: black;
+            color: white;
+        }
+   
+    .oval {
+            position: relative; 
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            transform: translateY(30px);
+            margin-left: 50px;
+        }
+
+   .counter-text {
+            color: white;
+            font-size: 24px;
+            margin-top: 20px;
+            position: relative;
+            transform: translateY(50px);
+        }
+    
+        .circle-background {
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 40px;
+            margin-left: 30px;
+            position: fixed;
+        }
+   
+    .circle-container {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+        }
+
+    .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .float-text {
+            position: absolute;
+            color: red;
+            font-size: 60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            pointer-events: none;
+            animation: floatUp 1s ease-out forwards;
+        }
+   
+    @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -150%);
+            }
+        }
+
+        .counter-text {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }       
+    
+    </style>
+</head>
+<body>
+   
+    <div class="rectangle"></div>
+    <div class="small-rectangle">
+        <span id="counter"></span>
+    </div>
+    <div class="oval" id="oval">
+        <img src="Hypic/coin1.jpg" alt="Oval Daire" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="counter-text" id="power">100/100</div>
+
+    <div class="circle-background">
+        <div class="circle-container">
+            <a href="aa10.html" class="circle">
+                <img src="Hypic/home.jpg" alt="Daire 1">
+            </a>
+            <a href="aa1.html" class="circle">
+                <img src="Hypic/random1.jpg" alt="Daire 2">
+            </a>
+            <a href="link3.html" class="circle">
+                <img src="Hypic/random2.jpg" alt="Daire 3">
+            </a>
+            <a href="link4.html" class="circle">
+                <img src="Hypic/cüzdan.jpg" alt="Daire 4">
+            </a>
+        </div>
+    </div>        
+    
+    <script>
+    let count = parseInt(localStorage.getItem('counter')) || 0;
+    let powerValue = parseInt(localStorage.getItem('powerValue')) || 100;
+
+    const oval = document.getElementById('oval');
+    const counter = document.getElementById('counter');
+    const power = document.getElementById('power');
+
+    // Sayfa yüklendiğinde sayacı ve güç değerini göster
+    counter.textContent = count;
+    updatePowerDisplay();
+
+    // Tıklama olayını tanımla
+    oval.addEventListener('pointerdown', function(event) {
+        if (powerValue > 0) {
+            count += 20;
+            counter.textContent = count;
+            localStorage.setItem('counter', count);  // Değeri kaydet
+
+            powerValue -= 20;
+            updatePowerDisplay();
+
+            // Float text animasyonu
+            const floatText = document.createElement('div');
+            floatText.className = 'float-text';
+            floatText.textContent = '+20';
+
+            const rect = oval.getBoundingClientRect();
+            floatText.style.left = `${event.clientX - rect.left}px`;
+            floatText.style.top = `${event.clientY - rect.top}px`;
+
+            oval.appendChild(floatText);
+
+            floatText.addEventListener('animationend', () => {
+                floatText.remove();
+            });
+        }
+    });
+  
+    // Güç göstergesini güncelle
+    function updatePowerDisplay() {
+        power.textContent = `100/${powerValue}`;
+        localStorage.setItem('powerValue', powerValue);  // Değeri kaydet
+    }
+
+    // Her 2 saniyede bir powerValue değerini 2 artır
+    setInterval(() => {
+        if (powerValue < 100) {
+            powerValue += 20;
+            updatePowerDisplay();
+        }
+    }, 2000);
+    
+    setInterval(() => {
+        let counterValue = parseInt(localStorage.getItem('counter')) || 0;
+        document.getElementById('counter').textContent = counterValue;  // 'counterDisplay' yerine 'counter' kullanıldı
+    }, 1000);
+    
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> 
 <script src="./main.js"></script>
+
+</script>
+  
+  
+    </body>
 </html>
