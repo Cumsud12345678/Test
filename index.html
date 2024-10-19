@@ -12,81 +12,94 @@
             justify-content: flex-start;
             height: 100vh;
             margin: 0;
-            background-color: black;
+            background-image: url('DCIM/Camera/roc1.jpg'); /* Arka plan fotoğrafı ekle */
+            background-size: 100% 100%; /* Fotoğrafın tam ekranı kaplamasını sağlar */
+            background-position: center; /* Fotoğrafı ortalar */
+            background-repeat: no-repeat; /* Fotoğrafın tekrar etmesini engeller */
         }
-
-        .rectangle, .circle, .oval, .small-rectangle, .circle-background {
+   
+        .rectangle, .rectangle1, .circle,.circle1, .small-rectangle, .circle-background {
             background-color: gray;
             margin: 10px;
         }
    
-    .rectangle {
+        .rectangle {
             position: relative;
             width: 300px;
-            height: 100px;
+            height: 50px;
             border-radius: 10px;
-            transform: translateY(10px);
             margin-left: 30px;
-        }
-
-        .small-rectangle {
-            width: 170px;
-            height: 40px;
-            border-radius: 10px;
-            transform: translateY(25px);
-            margin-left: 95px;
+            margin-top: 450px;
+            transition: background-color 0.5s; /* Yumuşak renk geçişi */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            background-color: black;
-            color: white;
+            justify-content: center; /* Yatay ortalama */
+            align-items: center; /* Dikey ortalama */
         }
    
-    .oval {
-            position: relative; 
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            transform: translateY(30px);
-            margin-left: 50px;
-        }
-
-   .counter-text {
+        .rectangle1 {
+            position: relative;
+            width: 300px;
+            height: 60px;
+            border-radius: 10px;
+            margin-left: 30px;
+            top: 3%;
             color: white;
             font-size: 24px;
-            margin-top: 20px;
-            position: relative;
-            transform: translateY(50px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-    
+   
+   
         .circle-background {
             width: 300px;
             height: 60px;
             border-radius: 10px;
             position: relative;
-            margin-top: 120px;
+            margin-top: 10px;
             margin-left: 30px;
             position: fixed;
+          
+        }
+    
+        .click-counter-container {
+            margin-top: 100px; /* Yeni metin kapsayıcısı için boşluk */
+            font-size: 35px;
+            font-weight: bold;
+            color: white; /* Sayının rengi */
+            position: absolute;
+            margin-left: 135px;
         }
    
-    .circle-container {
+        .circle-container {
             display: flex;
             justify-content: space-around;
             position: absolute;
             top: 0px;
             width: 100%;
         }
-
-        .circle {
+    
+        
+   
+        .circle1 {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             overflow: hidden;
             position: relative;
+            border: 2px solid yellow;
+        }
+    
+       .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            
         }
 
-    .circle img {
+        .circle img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -94,131 +107,115 @@
             top: 0;
             left: 0;
         }
-
-        .float-text {
-            position: absolute;
-            color: red;
-            font-size: 60px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            pointer-events: none;
-            animation: floatUp 1s ease-out forwards;
-        }
-   
-    @keyframes floatUp {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -150%);
-            }
-        }
-
-        .counter-text {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 10px;
-            margin-top: -10px;
-        }       
     
+        .circle1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    
+    
+        /* Sayı stili */
+        .count-text {
+            font-weight: bold;
+            font-size: 30px;
+            color: yellow; /* Örnek bir renk */
+          
+        }
+        
     </style>
-</head>
+    </head>
 <body>
-   
-    <div class="rectangle"></div>
-    <div class="small-rectangle">
-        <span id="counter"></span>
+    
+    <!-- Sayı dışarı taşındı ve yeni bir kapsayıcı içerisine konuldu -->
+    <div class="click-counter-container">
+        <span class="click-counter-text"></span> <!-- Tıklama sayısı burada gösterilecek -->
     </div>
-    <div class="oval" id="oval">
-        <img src="coin1.jpg" alt="Oval Daire" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <div class="counter-text" id="power">100/100</div>
 
+    <div class="rectangle1"></div>
+    <div class="rectangle">
+        <span class="count-text"></span>
+    </div>
+   
     <div class="circle-background">
         <div class="circle-container">
-            <a href="aa10.html" class="circle">
-                <img src="home.jpg" alt="Daire 1">
+            <a href="aa10.html" class="circle1">
+                <img src="Hypic/home.jpg" alt="Daire 1">
             </a>
             <a href="aa1.html" class="circle">
-                <img src="random1.jpg" alt="Daire 2">
+                <img src="Hypic/random1.jpg" alt="Daire 2">
             </a>
             <a href="link3.html" class="circle">
-                <img src="random2.jpg" alt="Daire 3">
+                <img src="Hypic/random2.jpg" alt="Daire 3">
             </a>
             <a href="link4.html" class="circle">
-                <img src="cüzdan.jpg" alt="Daire 4">
+                <img src="Hypic/cüzdan.jpg" alt="Daire 4">
             </a>
         </div>
-    </div>        
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script> 
-<script src="./main.js"></script>
+    </div>
 
     <script>
-    let count = parseInt(localStorage.getItem('counter')) || 0;
-    let powerValue = parseInt(localStorage.getItem('powerValue')) || 100;
 
-    const oval = document.getElementById('oval');
-    const counter = document.getElementById('counter');
-    const power = document.getElementById('power');
+        const rectangle = document.querySelector('.rectangle');
+        const rectangle1 = document.querySelector('.rectangle1');
+        const countText = document.querySelector('.count-text');
+        const clickCounterText = document.querySelector('.click-counter-text'); // Yeni eklenen sayaç için referans
 
-    // Sayfa yüklendiğinde sayacı ve güç değerini göster
-    counter.textContent = count;
-    updatePowerDisplay();
+        let count = parseInt(localStorage.getItem('count')) || 0; 
+        let clickCounter = parseInt(localStorage.getItem('clickCounter')) || 0; 
 
-    // Tıklama olayını tanımla
-    oval.addEventListener('pointerdown', function(event) {
-        if (powerValue > 0) {
-            count += 20;
-            counter.textContent = count;
-            localStorage.setItem('counter', count);  // Değeri kaydet
+        let interval;
 
-            powerValue -= 20;
-            updatePowerDisplay();
+        function updateDisplay() {
+            countText.textContent = `${count}/100`; // Sayıyı "/100" ile formatla
+            let greenPercentage = count * 1;
+            rectangle.style.background = `linear-gradient(to right, green ${greenPercentage}%, gray ${greenPercentage}%)`;
 
-            // Float text animasyonu
-            const floatText = document.createElement('div');
-            floatText.className = 'float-text';
-            floatText.textContent = '+20';
-
-            const rect = oval.getBoundingClientRect();
-            floatText.style.left = `${event.clientX - rect.left}px`;
-            floatText.style.top = `${event.clientY - rect.top}px`;
-
-            oval.appendChild(floatText);
-
-            floatText.addEventListener('animationend', () => {
-                floatText.remove();
-            });
+            // Tıklama sayısını dışarıda güncelle
+            clickCounterText.textContent = `+${clickCounter}`;
         }
-    });
-  
-    // Güç göstergesini güncelle
-    function updatePowerDisplay() {
-        power.textContent = `100/${powerValue}`;
-        localStorage.setItem('powerValue', powerValue);  // Değeri kaydet
-    }
+    
+        function startCounting() {
+            if (!interval) {
+                interval = setInterval(() => {
+                    count++;
+                    updateDisplay();
 
-    // Her 2 saniyede bir powerValue değerini 2 artır
-    setInterval(() => {
-        if (powerValue < 100) {
-            powerValue += 20;
-            updatePowerDisplay();
+                    if (count >= 100) {
+                        rectangle.style.background = 'green';
+                        clearInterval(interval);
+                        interval = null;
+                        localStorage.setItem('count', 100); 
+                    } else {
+                        localStorage.setItem('count', count);
+                    }
+                }, 1000); 
+            }
         }
-    }, 2000);
+
+        updateDisplay();
+        startCounting();
     
-    setInterval(() => {
-        let counterValue = parseInt(localStorage.getItem('counter')) || 0;
-        document.getElementById('counter').textContent = counterValue;  // 'counterDisplay' yerine 'counter' kullanıldı
-    }, 1000);
+        rectangle.addEventListener('click', () => {
+            if (rectangle.style.backgroundColor === 'green') {
+                rectangle.style.backgroundColor = 'gray';
+                rectangle.style.background = `linear-gradient(to right, green 0%, gray 100%)`;
+                clearInterval(interval);
+                interval = null; 
+                count = 0; 
+                localStorage.setItem('count', count); 
+                startCounting();
+
+                clickCounter += 10;
+                localStorage.setItem('clickCounter', clickCounter);
+                updateDisplay();
+            }
+        });
     
+    </script>
     
-</script>
-  
-  
-    </body>
-</html>
+</body>
+</html> 
