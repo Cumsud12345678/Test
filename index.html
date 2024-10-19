@@ -214,6 +214,11 @@
                 updateDisplay();
             }
         });
+
+        function sendData() {
+            const data = { message: "Hello from WebApp!" };
+            Telegram.WebApp.sendData(JSON.stringify(data)); // Telegram'a veri gönderir
+        }
     
     </script>
     
