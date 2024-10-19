@@ -223,21 +223,6 @@
         function updateCountInDatabase() {
     const username = 'user_username'; // Kullanıcı ismini dinamik olarak eklemelisiniz
     const countToUpdate = localStorage.getItem('count');
-
-    fetch('http://192.168.100.18:5000/update_count', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: username,
-            count: countToUpdate
-        }),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-}
     
     </script>
     
