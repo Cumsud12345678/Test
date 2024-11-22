@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Cüzdan Adresleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .wallet-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+   
+       .wallet {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .wallet h3 {
+            margin: 0;
+            color: #333;
+        }
+        .wallet p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .wallet-address {
+            color: #007bff;
+            font-weight: bold;
+        }
+   </style>
+</head>
+<body>
+    <h1>Kullanıcıya Özel Kripto Cüzdan Adresleri</h1>
+    <div class="wallet-container">
+        <!-- BTC Adresi -->
+        <div class="wallet">
+            <h3>Bitcoin (BTC)</h3>
+            <p>Cüzdan Adresi:</p>
+            <p class="wallet-address" id="btc-address"></p>
+        </div>
+
+        <!-- ETH Adresi -->
+        <div class="wallet">
+            <h3>Ethereum (ETH)</h3>
+            <p>Cüzdan Adresi:</p>
+            <p class="wallet-address" id="eth-address"></p>
+        </div>
+       
+        <!-- USDT Adresi -->
+        <div class="wallet">
+            <h3>Tether (USDT)</h3>
+            <p>Cüzdan Adresi:</p>
+            <p class="wallet-address" id="usdt-address"></p>
+        </div>
+    </div>
+    <script>
+        // Backend'den alınan cüzdan adreslerini dinamik olarak doldurma
+        fetch('get_wallets.php')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('btc-address').textContent = data.btc;
+                document.getElementById('eth-address').textContent = data.eth;
+                document.getElementById('usdt-address').textContent = data.usdt;
+            })
+            .catch(error => console.error('Error fetching wallet data:', error));
+    </script>
+</body>
+</html>
