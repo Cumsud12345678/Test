@@ -64,7 +64,7 @@
     </div>
     <script>
         // Backend'den alınan cüzdan adreslerini dinamik olarak doldurma
-        fetch('get_wallets.php')
+        fetch('http://127.0.0.1:4040')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('btc-address').textContent = data.btc;
