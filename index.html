@@ -1,440 +1,429 @@
 <!DOCTYPE html>
-<html lang="tr">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasarım Örneği</title>
-<style>
-
-        body {
-            background-color: black;          
-            align-items: center;
-            height: 100vh;
-            position: relative;
-            overflow-x: hidden; /* Yatay kaydırmayı engelle */
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        .crypto-container {
-            width: 90%;          
-            margin: 20px auto;          
-        }
-
-       .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0px;          
-            background-color: #222831;            
-        }
-            
-        .header a {
-            color: red;
-            font-size: 50px;
-            text-decoration: none;
-            margin-left: 310px;
-        }
-            
-        .crypto-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-beween;
-            padding: 7px 15px;
-            border: 1px solid black;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            background-color: black; /* Arka plan rengini daha koyu yaparak görünürlüğü artır */
-            color: white; /* Yazı rengini beyaz yaparak görünürlüğü artır */
-            font-family: Arial, sans-serif;
-            cursor: pointer; /* El işareti yapmak için */
-            text-align: center;            
-      }
-            
-      .crypto-name{
-            margin: 0 25px;
-      }
-            
-      .coin-image {
-           width: 28px; /* Boyutu isteğinize göre ayarlayın */
-           height: 28px;
-           border-radius: 50%; /* Görseli daire yapar */
-           margin-left: 0px;   
-           position: absolute;
-           margin: 20px -15px;           
-      }
-            
-      h1 {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 20px;
-       }
-            
-       .container {
-            padding: 10px;
-            text-align: center;
-            margin-top: -20px;
-        }
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+  <style>
   
-       .miktar{
-         position: absolute;
-         margin-left: 300px;
-         margin-top: -10px;
-       }
+  body{
+    background-color: black;
+    color: white;
+  }
   
-       .miktar-usdt{
-         position: absolute;
-         margin-left: 270px;
-         margin-top: 30px;
-         font-size: 10px;
-         color: gray;
-       }
+  .ümumi{
+    transform: translateY(100px);
+    width: 100%;
+    height: 500px;    
+  }
+  
+  .ümumi-başlık{
+    display: flex;
+    margin-bottom: 35px;
+    width: 100%;
+    height: 30px;
+    border: 0px solid white;
+    align-items: center;
+  }
+  
+  span{
+    margin-left: 10px;
+  }
+  
+  /* Modal Styles */
+  .modal1, .modal2, .modal3, .modal4, .modal5 {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
-</style>
-            
-</hed>
+  .modal-content1, .modal-content2, .modal-content3, .modal-content4, .modal-content5 {
+    background-color: black;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    color: white;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .modal-close{
+    position: absolut;
+    margin-top: 100px;
+  }
+  
+   #language-menu {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0px;
+      width: 100%;
+      height: 600px;
+      background: black;
+      border: 0px solid #ddd;
+      z-index: 1000000;
+      padding-top: 100px;
+    }
+    #language-menu button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      width: 345px;
+      border: none;
+      background: black;
+      cursor: pointer;
+      font-size: 16px;
+      color: white;
+    }
+    #language-menu button:hover {
+      background: ;
+    }
+    .selected {
+      font-weight: bold;
+      color: blue;
+    }
+    .checkmark {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: blue;
+    }
+  
+    h1{
+      position: absolute;
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+      margin: 50px 10px;
+    }
+  
+    input{
+      position: absolute;
+      border: none;
+      outline: none;
+      padding-left: 10px;
+      width: 200px;
+      height: 20px;
+      border-radius: 10px;
+      margin: 60px 90px;
+    }
+  
+    .fixed-üsd{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background-color: black;
+      z-index: 1000;
+    }
+  
+    .toggle-switch {
+      width: 50px;
+      height: 30px;
+      background: #333;
+      border-radius: 15px;
+      position: relative;
+      transition: background 0.3s ease;
+      margin: 90px 280px;
+    }
+  
+    .circle {
+      width: 26px;
+      height: 26px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: all 0.3s ease;
+    }
+  
+  
+    .option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 300px;
+      transform: translateY(60px);
+      padding: 15px;
+      margin: 10px auto;
+      font-size: 18px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #f1f1f1;
+      color: black;
+    }
+    .option.selected {
+      font-weight: bold;
+      color: blue;
+      border-color: blue;
+    }
+    .checkmark1 {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: blue;
+      display: none;
+    }
+    .option.selected .checkmark1 {
+      display: inline-block;
+    }
+    
+    .modall {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      backdrop-filter: blur(5px); Arkadaki elemanları bulanıklaştır 
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      z-index: 10000;
+      text-align: center;
+      width: 200px;
+      height: 150px;
+      overflow: hidden;      
+    }
 
+    .modall.active {
+      display: block;
+    }
+
+    .modall .close-btn {
+      margin-left: -5px;
+      padding: 10px 70px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modall .close-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+    
+    body.no-scroll {
+      overflow: hidden;
+    }
+  
+    .modal-fixed-başlık{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-color: red;
+      display: flex;
+      align-items: center;
+    }
+  
+    .modal-fixed-başlık p{
+      font-size: 18px;
+      font-weight: bold;
+      position: absolute;
+      margin-left: 120px;
+    }
+  
+    .uyqulama-foto{
+      position: absolute;
+      margin: 100px 130px;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      border: 1px solid white;
+    }
+  
+  
+  </style>
+  
+</head>
 <body>
   
-<div class="container">
-    <h1>Yatırmak için coin seçin</h1>
-    <input type="search" id="searchBar" placeholder="🔥 Coin ara..." style="width: 90%; padding: 5px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #555; outline: none;">
-</div>
-        
-    <div class="header">
-        
-          
+  <div class="fixed-üsd">
+  <h1>Ayarlar</h1>
+  <div class="material-icons" style="font-size: 35px; margin-left: 10px;" onclick='window.location.href="Boş(3).html"'>arrow_back</div>   
+  <input type="search" id="searchBar" placeholder="🔍 Ara">  
+  </div>
+    
+  <div class="ümumi">
+    
+    <div class="ümumi-başlık" id="language-button">
+      <span class="sspan" data-tr="Dil" data-en="Language">Dil</span>
     </div>
-
-<div class="container">
- 
-            
-  <div class="crypto-row" onclick="window.location.href='yeni2.html'">
-        <img src="Pictures/Browser/btc.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">BTC</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Bitcoin</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>           
-            
-  <div class="crypto-row" onclick="window.location.href='yeni1.html'">
-        <img src="Pictures/Browser/eth.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">ETH</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Ethereum</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>    
+    
+    <div class="ümumi-başlık" onclick="openModal2()">
+      <span class="sspan">Bildirim Ayarları</span>
+    </div>
+    
+    <div class="ümumi-başlık" onclick="openModal3()">
+      <span class="sspan">E-posta Bildirimleri</span>
+    </div>
+    
+    <div class="ümumi-başlık" onclick="openModal4()">
+      <span class="sspan">Mum Grafiği Açılış Fiyatı</span>
+    </div>
+    
+    <div class="ümumi-başlık">
+      <span class="sspann" style="width: 300px;">Uyqulama Testi</span>
+    </div>
+    
+    <div class="ümumi-başlık" onclick='window.location.href="Desdek.html"'>
+      <span class="sspan">Desdek ve Yardım</span>
+    </div>
+   
+    <div class="ümumi-başlık" onclick="openModal1()">
+      <span class="sspan">Lest Hakkında</span>
+    </div>
+    
   </div>
   
-  <div class="crypto-row" onclick="window.location.href='tetheryatırma.html'">
-        <img src="Pictures/Browser/usdt.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">USDT</span>
-        <span style="font-size: 12px; margin-left: -67px; margin-top: 18px; color: gray;">Tether</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>        
-            
-  <div class="crypto-row" onclick="window.location.href='lestyatırma.html'">
-        <img src="Hypic/lest.jpg" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">LEST</span>
-        <span style="font-size: 12px; margin-left: -64px; margin-top: 18px; color: gray;">Lest</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
+  
+  
+  <div id="language-menu">
+    <p style="position: absolute; font-size: 30px; margin: -50px 15px; font-weight: bold">Dil</p>
+    <button onclick="setLanguage('tr')" id="lang-tr">Türkçe<span class="checkmark" style="display: none;"></span></button>
+    <button onclick="setLanguage('en')" id="lang-en">English<span class="checkmark" style="display: none;"></span></button>
+    <button onclick="setLanguage('ru')" id="lang-ru">Rusça<span class="checkmark" style="display: none;"></span></button>    
   </div>
-            
-  <div class="crypto-row" onclick="window.location.href='binanceyatırma.html'">
-        <img src="Pictures/Browser/bnb.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">BNB</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Binance Coin</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='solanayatırma.html'">
-        <img src="Pictures/Browser/solana.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">SOL</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Solana</span>       
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='fdusdyatırma.html'">
-        <img src="Pictures/Browser/fdusd.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">FDUSD</span>
-        <span style="font-size: 12px; margin-left: -77px; margin-top: 18px; color: gray;">First Digital Usd</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='tronyatırma.html'">
-        <img src="Pictures/Browser/trx.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">TRX</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Tron</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='dogeyatırma.html'">
-        <img src="Pictures/Browser/doge.jpg" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">DOGE</span>
-        <span style="font-size: 12px; margin-left: -70px; margin-top: 18px; color: gray;">Doge</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='rippleyatırma.html'">
-        <img src="Pictures/Browser/xrp.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">XRP</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Ripple</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
+
+  
+  
+   <div class="modal2" id="modal2">
+        <div class="modal-content2">
+            <h2 id="modalTitle2"></h2>
+            <p id="modalConfirmation2"></p>
+            <p id="modalMinAmount2"></p>
+            <p id="modalEstimate2"></p>
+            <div class="material-icons" onclick="closeModal2()" style="position: absolute; font-size: 35px; margin: 0px 10px;">arrow_back</div>          
+          
+  <span style="position: absolute; font-size: 20px; font-weight: bold; margin-top: 70px;">Bildirimleri Aç</span>
+  <div class="toggle-switch" id="switch1" onclick="toggleSwitch(this, 'toggleState1')">
+    <div class="circle"></div>
   </div>
           
-  <div class="crypto-row" onclick="window.location.href='flokiyatırma.html'">
-        <img src="Pictures/Browser/floki.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">FLOKI</span>
-        <span style="font-size: 12px; margin-left: -70px; margin-top: 18px; color: gray;">Floki</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
+        </div>
+   </div>
+  
+  
+  
+   <div class="modal3" id="modal3">
+        <div class="modal-content3">
+            <h2 id="modalTitle3"></h2>
+            <p id="modalConfirmation3"></p>
+            <p id="modalMinAmount3"></p>
+            <p id="modalEstimate3"></p>
+            <div class="material-icons" onclick="closeModal3()" style="position: absolute; font-size: 35px; margin: 0px 10px;">arrow_back</div>                                                  
+  
+  <span style="position: absolute; font-size: 20px; font-weight: bold; margin-top: 70px;">Yeni Etkinlikler</span>        
+  <div class="toggle-switch" id="switch2" onclick="toggleSwitch(this, 'toggleState2')">
+    <div class="circle"></div>
   </div>
-            
-  <div class="crypto-row" onclick="window.location.href='litecoinyatırma.html'">
-        <img src="Pictures/Browser/ltc.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">LTC</span>
-        <span style="font-size: 12px; margin-left: -53px; margin-top: 18px; color: gray;">Lite Coin</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='cosmosyatırma.html'">
-        <img src="Pictures/Browser/atom.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">ATOM</span>
-        <span style="font-size: 12px; margin-left: -70px; margin-top: 18px; color: gray;">Cosmos</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='notyatırma.html'">
-        <img src="Pictures/Browser/not.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">NOT</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Not</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='bonkyatırma.html'">
-        <img src="Pictures/Browser/bonk.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">BONK</span>
-        <span style="font-size: 12px; margin-left: -70px; margin-top: 18px; color: gray;">Bonk</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>
-  </div>
-                      
-  <div class="crypto-row" onclick="window.location.href='polkadotyatırma.html'">
-        <img src="Pictures/Browser/dot.jpg" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">DOT</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Polkadot</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='shibayatırma.html'">
-        <img src="Pictures/Browser/shib.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">SHIB</span>
-        <span style="font-size: 12px; margin-left: -63px; margin-top: 18px; color: gray;">Shiba İnu</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='okbyatırma.html'">
-        <img src="Pictures/Browser/okb.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">OKB</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Okb</span>       
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='bitgetyatırma.html'">
-        <img src="Pictures/Browser/bgb.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">BTB</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Bitget Coin</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>   
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='stellaryatırma.html'">
-        <img src="Pictures/Browser/xlm.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">XLM</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Stellar</span>            
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='tonyatırma.html'">
-        <img src="Pictures/Browser/ton.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">TON</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Ton</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='dogsyatırma.html'">
-        <img src="Pictures/Browser/dogs.webp" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">DOGS</span>
-        <span style="font-size: 12px; margin-left: -70px; margin-top: 18px; color: gray;">Dogs</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='suiyatırma.html'">
-        <img src="Pictures/Browser/sui.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">SUI</span>
-        <span style="font-size: 12px; margin-left: -50px; margin-top: 18px; color: gray;">Sui</span>      
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='neiroyatırma.html'">
-        <img src="Pictures/Browser/neiro.webp" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">NEIRO</span>
-        <span style="font-size: 12px; margin-left: -73px; margin-top: 18px; color: gray;">Neiro</span>             
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='pepeyatırma.html'">
-        <img src="Pictures/Browser/pepe.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">PEPE</span>
-        <span style="font-size: 12px; margin-left: -65px; margin-top: 18px; color: gray;">Pepe</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='avaxyatırma.html'">
-        <img src="Pictures/Browser/avax.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">AVAX</span>
-        <span style="font-size: 12px; margin-left: -68px; margin-top: 18px; color: gray;">Avax</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
+  
+  <span style="position: absolute; font-size: 20px; font-weight: bold; margin-top: -50px;">Yeni Listelemeler</span>        
+  <div class="toggle-switch" id="switch3" onclick="toggleSwitch(this, 'toggleState3')" style="margin-top: -50px;">
+    <div class="circle"></div>
   </div>     
+          
+        </div>
+   </div>  
   
-  <div class="crypto-row" onclick="window.location.href='usdcyatırma.html'">
-        <img src="Pictures/Browser/usdc.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">USDC</span>
-        <span style="font-size: 12px; margin-left: -67px; margin-top: 18px; color: gray;">Usdc</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='linkyatırma.html'">
-        <img src="Pictures/Browser/chainlink.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">LINK</span>
-        <span style="font-size: 12px; margin-left: -60px; margin-top: 18px; color: gray;">ChainLink</span>          
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='bitcoincashyatırma.html'">
-        <img src="Pictures/Browser/bitcoincash.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">BCH</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Bitcoin Cash</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='nearyatırma.html'">
-        <img src="Pictures/Browser/near.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">NEAR</span>
-        <span style="font-size: 12px; margin-left: -68px; margin-top: 18px; color: gray;">Near</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='uniswapyatırma.html'">
-        <img src="Pictures/Browser/uniswap.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">UNI</span>
-        <span style="font-size: 12px; margin-left: -52px; margin-top: 18px; color: gray;">Uni Swap</span>            
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='bittensoryatırma.html'">
-        <img src="Pictures/Browser/bittensor.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">TAO</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Bittensor</span>            
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='renderyatırma.html'">
-        <img src="Pictures/Browser/render.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">RENDER</span>
-        <span style="font-size: 12px; margin-left: -88px; margin-top: 18px; color: gray;">Render</span>            
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='stacksyatırma.html'">
-        <img src="Pictures/Browser/stacks.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">STX</span>
-        <span style="font-size: 12px; margin-left: -55px; margin-top: 18px; color: gray;">Stacks</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='aaveyatırma.html'">
-        <img src="Pictures/Browser/aave.jpg" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">AAVE</span>
-        <span style="font-size: 12px; margin-left: -68px; margin-top: 18px; color: gray;">Aave</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='arbitrumyatırma.html'">
-        <img src="Pictures/Browser/arbitrum.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">ARB</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Arbitrum</span>           
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='injectiveyatırma.html'">
-        <img src="Pictures/Browser/injective.jpg" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">INJ</span>
-        <span style="font-size: 12px; margin-left: -50px; margin-top: 18px; color: gray;">İnjective</span>            
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>
-            
-  <div class="crypto-row" onclick="window.location.href='eosyatırma.html'">
-        <img src="Pictures/Browser/eos.png" alt="coin image" class="coin-image">
-        <span class="crypto-name" style="font-size: 17px; margin-bottom:10px; font-weight: bold;">EOS</span>
-        <span style="font-size: 12px; margin-left: -57px; margin-top: 18px; color: gray;">Eos</span>        
-        <span class="miktar">0</span>
-        <span class="miktar-usdt">≈0 USDT</span>        
-  </div>        
-            
-</div>
   
-</div>
+  
+   <div class="modal4" id="modal4">
+        <div class="modal-content4">
+            <h2 id="modalTitle4"></h2>
+            <p id="modalConfirmation4"></p>
+            <p id="modalMinAmount4"></p>
+            <p id="modalEstimate4"></p>
+            <div class="material-icons" onclick="closeModal4()" style="position: absolute; font-size: 35px; margin: 0px 10px;">arrow_back</div>                                                  
+          
+  <div id="option1" class="option" onclick="selectOption('option1')">
+    İlk işlem fiyatı <span class="checkmark1"></span>
+  </div>
+  <div id="option2" class="option" onclick="selectOption('option2')">
+    Son kapanış fiyatı <span class="checkmark1"></span>
+  </div>     
+          
+        </div>
+   </div>  
+  
+  
+  
+  <div class="modal1" id="modal1">
+        <div class="modal-content1">
+            <h2 id="modalTitle1"></h2>
+            <p id="modalConfirmation1"></p>
+            <p id="modalMinAmount1"></p>
+            <p id="modalEstimate1"></p>
+          
+          <div class="modal-fixed-başlık">
+            <div class="material-icons" onclick="closeModal1()" style="position: absolute; font-size: 35px; margin: 0px 10px;">arrow_back</div>          
+            <p>LEST HAKKINDA</p>
+          </div>
+          
+          <div class="uyqulama-foto"></div>
+          
+        </div>
+   </div>
+  
+  
+  <div class="overlay"></div>
+  <div class="modall">
+    <p>Lütfen mobil cihazınızın ayarlarında arama yapma ve yönetme izinlerini etkinleştirin</p>
+    <button class="close-btn">OK</button>
+  </div>
+  
+  
+  
+   <div class="modal5" id="modal5">
+        <div class="modal-content5">
+            <h2 id="modalTitle5"></h2>
+            <p id="modalConfirmation5"></p>
+            <p id="modalMinAmount5"></p>
+            <p id="modalEstimate5"></p>
+            <div class="material-icons" onclick="closeModal5()" style="position: absolute; font-size: 35px; margin: 0px 10px;">arrow_back</div>                                                 
+        </div>
+   </div>  
+  
+  
+  
+  
+  
 
-<script>
-
-    const searchBar = document.getElementById('searchBar');
-    const cryptoRows = document.querySelectorAll('.crypto-row');
-
-    searchBar.addEventListener('input', () => {
-        const filter = searchBar.value.toLowerCase();
-        
-        cryptoRows.forEach(row => {
-            const cryptoName = row.querySelector('.crypto-name').textContent.toLowerCase();
-            if (cryptoName.includes(filter)) {
-                row.style.display = ''; // Görünür yap
-            } else {
-                row.style.display = 'none'; // Gizle
-            }
-        });
-    });
-
-</script>
-
-            
+<script src="ayarlar.js"></script>
+  
 </body>
+</html>
