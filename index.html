@@ -1,123 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
 <meta charset="UTF-8">
-<title>Hello, World!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Səhifə Sürüşdürmə (Düzgün Versiya)</title>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="yana-kayma.css">
 
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-}
 
-.modal {
-    display: none;
-    position: fixed;
-    left: 0;
-    bottom: -100%; /* İlk başta tamamen görünmez ve aşağıda */
-    width: 100%;
-    height: 400px;
-    background-color: #18191d;
-    border-radius: 15px 15px 0 0;
-    z-index: 1000;
-    transition: transform 0.4s ease, bottom 0.4s ease;
-    transform: translateY(100%); /* Aşağıdan başla */
-}
-
-.modal.active {
-    display: block;
-    transform: translateY(0); /* Yükselip açıl */
-    bottom: 0; /* Alta yapış */
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.overlay.active {
-    display: block;
-}
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-}
+      
 </style>
 </head>
 <body>
 
-<div class="material-iconss">jdjdjjd</div>
-
-<div class="overlay"></div>
-<div class="modal">
-    <span class="material-icons close-btn" id="icons">close</span>
-    <!-- Modal içeriği buraya -->
-    <h2 style="color: white;">Aşağıdan Açılan Modal</h2>
+    
+<div class="header">
+    <div onclick="goToPage(0)" style="position: absolute; left: 10px;">Genel Bakış</div>
+    <div onclick="goToPage(1)" style="position: absolute; left: 140px;">Spot</div>
+    <div onclick="goToPage(2)" style="position: absolute; left: 210px;">Vadeli</div>
+    <div onclick="goToPage(3)" style="position: absolute; left: 290px;">Funding</div>
 </div>
 
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="bakiye-container">
+            <div class="bakiye">
+              <p style="font-size: 13px; position: absolute; left: 10px;">Toplam Bakiye</p>
+              <span class="material-icons" style="position: absolute; right: 10px; color: white;" onclick="window.location.href='gb-history.html'">history</span>               
+            </div>
+            <span style="position: absolute; font-weight: bold; margin: 35px 10px; font-size: 30px;">0<span style="color: gray; font-size: 13px;"> BTC</span></span>
+            <span style="position: absolute; color: gray; margin: 70px 10px; font-size: 11px;">≈0 USDT</span>
+            <div class="bakiye-alt">
+              <button>Yatırma</button>
+              <button>Çekim</button>
+              <button>Transfer</button>
+            </div>
+          </div>
+          <h3 style="position: absolute; margin: 250px 10px;">Varlık Dağılımı</h3>
+          <span style="position: absolte; font-size: 15px; margin: 300px 50px; display: flex;">Spot<span style="position: absolute; right: 10px;">0 BTC</span></span>
+          <span style="position: absolte; font-size: 15px; margin: -280px 50px; display: flex;">Vadeli<span style="position: absolute; right: 10px;">0 BTC</span></span>
+          <span style="position: absolte; font-size: 15px; margin: 300px 50px; display: flex;">İtibari<span style="position: absolute; right: 10px;">0 BTC</span></span>
+          
+          <div class="yatırıma-çekme">
+            <div class="yatırma-yöntemleri">
+                <div></div>
+                <p>Kripto Para Yatırın</p>
+                <span>Blockchain aracılığıyla hızlı bakiye eklemek için coin yatırma adresinizi kullanın.</span>
+            </div>
+            <div class="yatırma-yöntemleri">
+                <div></div>
+                <p>Doğrudan Kripto Satın Alın</p>
+                <span>Blockchain aracılığıyla hızlı bakiye eklemek için coin yatırma adresinizi kullanın.</span>            
+            </div>
+            <div class="yatırma-yöntemleri">
+                <div></div>
+                <p>P2P Aracılığıyla Kripto Alın</p>
+                <span>Blockchain aracılığıyla hızlı bakiye eklemek için coin yatırma adresinizi kullanın.</span>           
+            </div>
+        </div>
+          
+        </div>
+      
+      
+      
+      
+      
+      
+        <div class="swiper-slide">
+          <div class="bakiye-container">
+            <div class="bakiye">
+              <p style="font-size: 13px; position: absolute; left: 10px;">Toplam Bakiye</p>
+              <span class="material-icons" style="position: absolute; right: 10px; color: white;" onclick="window.location.href='spot-history.html?fromTab=1'">history</span>               
+            </div>
+            <span style="position: absolute; font-weight: bold; margin: 35px 10px; font-size: 30px;">0<span style="color: gray; font-size: 13px;"> BTC</span></span>
+            <span style="position: absolute; color: gray; margin: 70px 10px; font-size: 11px;">≈0 USDT</span>
+            <p style="position: absolute; font-size: 12px; margin: 90px 10px;">Bugünkü Pnl: +$0,00(%0,00)</p>
+            <div class="bakiye-alt" style="transform: translateY(10px);">
+              <button>Yatırma</button>
+              <button>Çekim</button>
+              <button>Transfer</button>
+            </div>
+          </div>
+            
+          <h2 style="position: absolute; margin: 210px 10px; ">Varlık Listesi</h2>
+          <input type="search" placeholder="Ara..." style="position: absolute; margin: 210px 180px; border:1px solid gray; color: white; background: black; width: 150px; height: 25px; border-radius: 10px; outline: none; padding-left: 10px;">
+            
+            
+          <div class="varlık-listesi">
+            <div>
+              <img src="Pictures/Browser/usdt.png">              
+              <span style="position: absolute; font-size: 14px; font-weight: bold; left: 45px; top: 18px;">USDT</span>
+              <span style="position: absolute; font-size: 14px; font-weight: bold; right: 10px; top: 18px;">0</span>
+              <span style="position: absolute; font-size: 11px; font-weight: bold; left: 45px; top: 40px; color: gray;">Tethet</span>
+              <span style="position: absolute; color: gray; font-size: 11px; font-weight: bold; right: 10px; top: 40px;">≈0 USDT</span>
+              
+            </div>
+            <div>
+              <img src="Pictures/Browser/btc.png">
+            </div>
+            <div>
+              <img src="Pictures/Browser/eth.png">            
+            </div>
+          </div>
+          
+        </div>
+      
+      
+      
+      
+      
+        <div class="swiper-slide">
+          <div class="bakiye-container">
+            <div class="bakiye">
+              <p style="font-size: 13px; position: absolute; left: 10px;">Toplam Bakiye</p>
+              <span class="material-icons" style="position: absolute; right: 10px; color: white;" onclick="window.location.href='vadeli-history.html?fromTab=2'">history</span>
+              <span class="material-icons" style="position: absolute; right: 50px; color: white;">redeem</span>                
+            </div>
+            <span style="position: absolute; font-weight: bold; margin: 35px 10px; font-size: 30px;">0<span style="color: gray; font-size: 13px;"> BTC</span></span>
+            <span style="position: absolute; color: gray; margin: 70px 10px; font-size: 11px;">≈0 USDT</span>
+            <p style="position: absolute; font-size: 13px; margin: 90px 10px;">Bugünkü Pnl: +$0,00(%0,00)</p>
+            <span style="position: absolute; font-size: 11px; color: gray; left: 10px; margin-top: 130px;">Greçekleşmemiş PNL</span>
+            <span style="position: absolute; font-size: 15px; color: white; left: 10px; margin-top: 150px;">0</span>            
+            <span style="position: absolute; font-size: 11px; color: gray; right: 60px; margin-top: 130px;">Cüzdan Bakiyesi</span>
+            <span style="position: absolute; font-size: 15px; color: white; right: 132px; margin-top: 150px;">0</span>
+            
+            <div class="bakiye-alt" style="transform:translateY(80px);">
+              <button>Al-Sat</button>
+              <button>Kripto Al</button>
+              <button>Transfer</button>
+            </div>
+          </div>
+          
+          <div class="vadeli-container">
+            <div class="vadeli-menü">
+              <img src="Pictures/Browser/btc.png" style="position: absolute; margin-top: 10px;">
+                <span style="position: absolute; font-weight: bold; margin: 14px 40px;">BCH</span>
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 50px; left: 10px; font-weight: bold;">Toplam Net Değer</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 70px; left: 10px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 50px; left: 190px; font-weight: bold;">Bonus</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 70px; right: 162px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 100px; left: 10px; font-weight: bold;">Gerçekleşmemiş PNL</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 120px; left: 10px; font-weight: bold;">0</span>                                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 100px; left: 190px; font-weight: bold;">Cüzdan Bakiyesi</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 120px; right: 162px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 150px; left: 10px; font-weight: bold;">Kullanılabilir Marjin</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 170px; left: 10px; font-weight: bold;">0</span>                
+                
+            </div>
+            <div class="vadeli-menü">
+              <img src="Pictures/Browser/btc.png" style="position: absolute; margin-top: 10px;">
+                <span style="position: absolute; font-weight: bold; margin: 14px 40px;">BCH</span>
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 50px; left: 10px; font-weight: bold;">Toplam Net Değer</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 70px; left: 10px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 50px; left: 190px; font-weight: bold;">Bonus</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 70px; right: 162px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 100px; left: 10px; font-weight: bold;">Gerçekleşmemiş PNL</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 120px; left: 10px; font-weight: bold;">0</span>                                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 100px; left: 190px; font-weight: bold;">Cüzdan Bakiyesi</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 120px; right: 162px; font-weight: bold;">0</span>                
+                <span style="color: gray; font-size: 12px; position: absolute; margin-top: 150px; left: 10px; font-weight: bold;">Kullanılabilir Marjin</span>
+                <span style="color: white; font-size: 15px; position: absolute; margin-top: 170px; left: 10px; font-weight: bold;">0</span>                
+                
+            </div>
+            <div class="vadeli-menü">
+              
+            </div>
+          </div>
+          
+        </div>
+          
+      
+      
+      
+      
+        <div class="swiper-slide">
+            <div class="bakiye-container">
+            <div class="bakiye">
+              <p style="font-size: 13px; position: absolute; left: 10px;">Toplam Bakiye</p>
+              <span class="material-icons" style="position: absolute; right: 10px; color: white;" onclick="window.location.href='funding-history.html?fromTab=3'">history</span>               
+            </div>
+            <span style="position: absolute; font-weight: bold; margin: 35px 10px; font-size: 30px;">0<span style="color: gray; font-size: 13px;"> BTC</span></span>
+            <span style="position: absolute; color: gray; margin: 70px 10px; font-size: 11px;">≈0 USDT</span>
+            <p style="position: absolute; font-size: 13px; margin: 90px 10px;">Bugünkü Pnl: +$0,00(%0,00)</p>
+            <span style="position: absolute; font-size: 11px; color: gray; left: 10px; margin-top: 130px;">Greçekleşmemiş PNL</span>
+            <span style="position: absolute; font-size: 15px; color: white; left: 10px; margin-top: 150px;">0</span>            
+            <span style="position: absolute; font-size: 11px; color: gray; right: 60px; margin-top: 130px;">Cüzdan Bakiyesi</span>
+            <span style="position: absolute; font-size: 15px; color: white; right: 132px; margin-top: 150px;">0</span>
+            
+            <div class="bakiye-alt" style="transform:translateY(80px);">
+              <button>Al-Sat</button>
+              <button>Kripto Al</button>
+              <button>Transfer</button>
+            </div>
+          </div>
+            
+<div class="taz-container">
+    <div class="taz active" onclick="openTaz(0)">Mövelər</div>
+    <div class="taz" onclick="openTaz(1)">Aktivlər</div>
+</div>
+
+<div class="taz-wrapper">
+    <div class="taz-contents" id="tazContents">
+        <div class="taz-content">
+            <img src="Pictures/Browser/gb.png" style="position: absolute; margin: 30px 100px; width: 150px; height: 150px;">
+            <p style="color: gray; font-size: 16px; margin: 180px 84px; font-weight: bold; position: absolute;">Hiçbir kayıt bulunamadı</p>                    
+        </div>
+        <div class="taz-content">
+            <img src="Pictures/Browser/gb.png" style="position: absolute; margin: 30px 100px; width: 150px; height: 150px;">
+            <p style="color: gray; font-size: 16px; margin: 180px 84px; font-weight: bold; width: 200px; position: absolute;">Hiçbir kayıt bulunamadı</p>                           
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</div>
+  
+  
+  
+  <div class="bottom-bar">    
+      <div class="bottom-item" onclick="window.location.href='Boş(3).html'">
+        <div class="iç-kare"><span class="material-icons" style="color: gray; font-size: 25px;">home</span></div>
+        <p style="position: absolute; color: gray; font-size: 10px; margin-top: 30px;">Ana sayfa</p>
+      </div>
+      <div class="bottom-item" onclick="window.location.href='piyasalar.html'">
+        <div class="iç-kare"><span class="material-icons" style="color: gray; font-size: 25px;">leaderboard</span></div>
+        <p style="position: absolute; color: gray; font-size: 10px; margin-top: 30px;">Piyasalar</p>      
+      </div>
+      <div class="bottom-item" onclick="window.location.href='z1fake2.html'">
+        <div class="iç-kare"><span class="material-icons" style="color: gray; font-size: 25px; transform: rotate(90deg);">sync_alt</span></div>
+        <p style="position: absolute; color: gray; font-size: 10px; margin-top: 30px;">Al-Sat</p>      
+      </div>
+      <div class="bottom-item" onclick="window.location.href='vadeli1.html'">
+        <div class="iç-kare"><span class="material-icons" style="color: gray; font-size: 25px;">trending_up</span></div>
+        <p style="position: absolute; color: gray; font-size: 10px; margin-top: 30px;">Vadeli</p>      
+      </div>
+      <div class="bottom-item" onclick="window.location.href='yana-kayma.html'">
+        <div class="iç-kare"><span class="material-icons" style="color: white; font-size: 25px;">account_balance_wallet</span></div>
+        <p style="position: absolute; color: white; font-size: 10px; margin-top: 30px;">cüzdan</p>      
+      </div>  
+  </div>
+
+<div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-const infoIcon = document.querySelector(".material-iconss");
-const modal = document.querySelector(".modal");
-const closeModal = document.querySelector("#icons");
-const overlay = document.querySelector(".overlay");
-const body = document.body;
-
-let modalOpen = false;
-
-function openModal() {
-    modal.style.display = "block"; // Önce göster, sonra animasyon
-    setTimeout(() => {
-        modal.classList.add("active");
-        overlay.classList.add("active");
-        body.classList.add("no-scroll");
-        modalOpen = true;
-        history.pushState(null, "", location.href);
-    }, 10);
-}
-
-function closeModalFunc() {
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-    body.classList.remove("no-scroll");
-    modalOpen = false;
-
-    setTimeout(() => {
-        modal.style.display = "none"; // Animasyon bitince tamamen kaldır
-        if (history.length > 1) {
-            history.back();
+    const swiper = new Swiper('.mySwiper', {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        resistanceRatio: 0.85,
+        grabCursor: true,
+        preventClicks: true,
+        preventClicksPropagation: true,
+        touchStartPreventDefault: false,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        on: {
+            slideChangeTransitionStart: showLoading,
+            slideChangeTransitionEnd: hideLoading,
         }
-    }, 400); // Geçiş süresi kadar bekle
+    });
+
+    function goToPage(index) {
+        showLoading();
+        swiper.slideTo(index);
+    }
+
+    function showLoading() {
+        const loading = document.getElementById('loading');
+        loading.classList.add('active');
+        setTimeout(hideLoading, 1200); // 1.2 saniyə loading görünsün
+    }
+
+    function hideLoading() {
+        const loading = document.getElementById('loading');
+        loading.classList.remove('active');
+        updateHeaderActive();
+    }
+
+    function updateHeaderActive() {
+        document.querySelectorAll('.header div').forEach((el, idx) => {
+            el.style.color = (idx === swiper.activeIndex) ? 'white' : 'gray';
+        });
+    }
+
+    updateHeaderActive(); // ilk başda başlığı düzgün rənglə
+
+function openTaz(index) {
+    const contents = document.getElementById('tazContents');
+    contents.style.transform = `translateX(-${index * 100}%)`;
+
+    const tabs = document.querySelectorAll('.taz');
+    tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+    });
 }
+    
+  
+    // Sayfa yüklenince hangi sekme olduğunu kontrol et
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const fromTab = params.get('fromTab');
 
-infoIcon.addEventListener("click", openModal);
-closeModal.addEventListener("click", closeModalFunc);
-overlay.addEventListener("click", closeModalFunc);
-
-window.addEventListener("popstate", () => {
-    if (modalOpen) {
-        closeModalFunc();
+    if (fromTab !== null) {
+        swiper.slideTo(parseInt(fromTab));  // Vadeli sekmesi 2. sırada, yani index 2
     }
-});
 
-document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible" && modalOpen && history.length === 1) {
-        closeModalFunc();
-    }
-});
+    updateHeaderActive();  // Renkleri güncelle
+}
+  
 </script>
 
 </body>
-</html>
+                  </html>
